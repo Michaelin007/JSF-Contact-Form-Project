@@ -106,7 +106,9 @@ public class AnsD implements Serializable  {
                       Logger.getLogger(AnsD.class.getName()).log(Level.SEVERE, null, ex);
                       //databas.setText("Not connected");
                       rex= "Not Save, try again";
-                  }
+                  } 
+                  
+                 
          return null;
     }
 

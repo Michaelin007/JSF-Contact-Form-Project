@@ -46,7 +46,7 @@
                   Result : 
                   <h:outputText value="#{askD.re}" id="muy"/><br/>
                    <h:commandButton value="Send Question" actionListener="#{askD.sendmail}" action="mainn" >
-                       <f:ajax render="muy" execute="@form" resetValues="true"/>
+                       <f:ajax render="muy" execute="@form" />
                      <br/>
                    </h:commandButton><br/>
                   <h:commandButton value="Clear" action="mainn" >
@@ -114,7 +114,7 @@
                      Result : 
                      <h:outputText value="#{ansD.rex}" id="moy"/><br/>
                      <h:commandButton value="Send Response" actionListener="#{ansD.sendmailx}" action="mainn">
-                       <f:ajax render="moy" execute="@form" resetValues="true" />
+                       <f:ajax render="moy" execute="@form" />
                      <br/>
                    </h:commandButton><br/>
                     <h:commandButton value="Clear" action="mainn" >

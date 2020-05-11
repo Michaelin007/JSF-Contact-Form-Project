@@ -69,7 +69,7 @@ public class AskD implements Serializable {
         re=rr1;
     }
     
-    public String  sendmail() throws NamingException {
+    public String  sendmail() throws NamingException, SQLException {
        /*  try {
             SendM mike= new SendM();
             mike.sendMessage(name, emailadd, question);
@@ -81,14 +81,14 @@ public class AskD implements Serializable {
         }
         return null;
     }*/
-       //Connection conn=null;
+      // Connection conn=null;
 
                   try {
                       //conn =(Connection) DriverManager.getConnection(CONN_STRING,USERNAME,PASSWORD);
                      // databas.setText("Connected");
                      InitialContext ctx=new InitialContext();
                      DataSource ds= (DataSource)ctx.lookup("askclinical");
-                     Connection conn=ds.getConnection();
+                        Connection conn=ds.getConnection();
                       Statement ad=(Statement) conn.createStatement();
                       String p_name= name;
                       String emi=emailadd;
@@ -100,9 +100,13 @@ public class AskD implements Serializable {
                       Logger.getLogger(AskD.class.getName()).log(Level.SEVERE, null, ex);
                       //databas.setText("Not connected");
                       re= "Not Save, try again ";
+                      
                   }
+                  
          return null;
     }
+   
+  
 
      public void clear(AjaxBehaviorEvent event)
             throws AbortProcessingException {

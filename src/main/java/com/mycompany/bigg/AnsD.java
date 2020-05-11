@@ -16,6 +16,9 @@ import javax.enterprise.context.RequestScoped;
 import javax.faces.event.AbortProcessingException;
 import javax.faces.event.AjaxBehaviorEvent;
 import javax.inject.Named;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
 
 /**
  *
@@ -70,7 +73,7 @@ public class AnsD implements Serializable  {
     }
     
     
-    public String  sendmailx() {
+    public String  sendmailx() throws NamingException {
        /*  try {
             SendM mike= new SendM();
             mike.sendMessage(name, emailadd, question);
@@ -83,11 +86,14 @@ public class AnsD implements Serializable  {
         return null;
     }*/
        
-       Connection conn=null;
+       //Connection conn=null;
 
                   try {
-                      conn =(Connection) DriverManager.getConnection(CONN_STRING,USERNAME,PASSWORD);
+                      //conn =(Connection) DriverManager.getConnection(CONN_STRING,USERNAME,PASSWORD);
                      // databas.setText("Connected");
+                      InitialContext ctx=new InitialContext();
+                     DataSource ds= (DataSource)ctx.lookup("askclinical");
+                     Connection conn=ds.getConnection();
                       Statement ad=(Statement) conn.createStatement();
                       String p_name= namex;
                       String emi=emailaddx;
